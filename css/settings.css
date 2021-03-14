@@ -1,0 +1,29 @@
+.settingsSpacedDiv {
+    margin-bottom : 7px;
+}
+
+.settingsTwoColumn > div {
+    display: inline-block;
+}
+
+.settingsTwoColumn > div:first-child {
+    text-align: left;
+    width: 100px;
+    vertical-align: top;
+}
+
+.settingsTwoColumnButton {
+    width: 95px;
+}
+
+.settingsLabelDiv {
+    padding-top: 2px;
+}
+
+#jsonUploadButtonLabel {
+    padding: 1px 26.15px;
+}
+
+#jsonUploadButton {
+    display: none;
+}
