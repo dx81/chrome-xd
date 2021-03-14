@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome XD",
+  "description": "Render a dynamic background on new tab pages, packed as a chrome extension. Source code is available on github.",
+  "version": "2.0",
+  "short_name" : "Animated new tab",
+  "chrome_url_overrides" : {
+    "newtab" : "index.html"
+  },
+  "permissions": ["storage"],
+  "icons" : {
+    "128" : "icon128.png"
+  }
+}
