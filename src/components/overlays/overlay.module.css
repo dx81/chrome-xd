@@ -1,0 +1,34 @@
+.overlayBox {
+    padding: 10px;
+    position: absolute;
+
+    border-radius: 7px;
+    border: 1px solid white;
+    background: black;
+    color: white;
+}
+
+.smallOverlayBox {
+    composes: overlayBox;
+
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 500px;
+    margin-left: -300px;   /* negative half of width above */
+    margin-top: -250px;   /* negative half of height above */
+}
+
+.largeOverlayBox {
+    composes: overlayBox;
+
+    left: 0;
+    right: 0;
+    margin: 1vh auto auto;
+    width: 94vw;
+    height: 94vh;
+}
+
+.heading {
+    text-align: center;
+}
