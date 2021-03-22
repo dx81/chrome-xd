@@ -33,3 +33,9 @@ export const Subheading = ({children, ...props}) => {
 export const Spacer = ({...props}) => {
     return <div className={style.spacer} {...props}> </div>
 }
+
+export const CloseButton = ({children, ...props}) => {
+    return <button className={style.closeButton} {...props}>
+        {children}
+    </button>
+}

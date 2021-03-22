@@ -1,9 +1,9 @@
 import {useState} from "react"
 import React from "react";
 import {MdSettings} from "react-icons/all";
-import {Button, SmallOverlayBox, Heading, Spacer} from "../_components/components";
-import JSONControl from "./jsonControl";
-import Presets from "./presets";
+import {Button, SmallOverlayBox, Heading, Spacer, CloseButton} from "../_components/components";
+import JSONControl from "./json/jsonControl";
+import Presets from "./presets/presets";
 
 const SettingsHeader = () => {
     return <React.Fragment>
@@ -20,18 +20,12 @@ const SettingsDiv = ({setShowDiv}) => {
         <SettingsHeader/>
         <Spacer/>
 
+        <CloseButton onClick={() => setShowDiv(false)}>
+            Close
+        </CloseButton>
+
         <JSONControl/>
         <Presets/>
-
-        <Button style={{
-                    position: "absolute",
-                    bottom: "20px",
-                    right: "20px"
-                }}
-                onClick={() => setShowDiv(false)}
-        >
-            Close
-        </Button>
     </SmallOverlayBox>
 }
 
