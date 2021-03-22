@@ -22,7 +22,7 @@ const backend = new class {
             chrome.storage.local.get("sceneData", res => {
                 if ("sceneData" in res) res = res.sceneData;
 
-                if (Object.keys(res).length === 0) resolve(defaultJSON);
+                if (typeof res !== "object" || Object.keys(res).length === 0) resolve(defaultJSON);
                 resolve(res);
             })
         })
