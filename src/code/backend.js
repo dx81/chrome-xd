@@ -1,6 +1,6 @@
 /* global chrome */
 import defaultJSON from "./defaultJSON";
-import brokeJSON from "./broke"
+import brokeJSON from "./brokeJSON"
 
 const backend = new class {
     chromeJSON;
