@@ -7,11 +7,17 @@ window.onresize = () => {
     document.getElementById("main").height = window.innerHeight;
 }
 
-const Canvas = () => {
-    return <div>
-        <canvas id="main" width={window.innerWidth} height={window.innerHeight} className={style.main} onLoad={() => backend.onload()}/>
-        <div id="debugInfo" className={style.debugInfo}> </div>
-    </div>
+class Canvas extends React.Component {
+    componentDidMount () {
+        backend.onload();
+    }
+
+    render () {
+        return <div>
+            <canvas id="main" width={window.innerWidth} height={window.innerHeight} className={style.main}/>
+            <div id="debugInfo" className={style.debugInfo}> </div>
+        </div>
+    }
 }
 
 export default Canvas;
