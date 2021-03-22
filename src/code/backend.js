@@ -1,6 +1,10 @@
 /* global chrome */
 import defaultJSON from "./defaultJSON";
-import brokeJSON from "./brokeJSON"
+import brokeJSON from "./brokeJSON";
+
+import Engine from "../engine-xd/src/engine.js";
+
+const N = (x, n) => Array(n).fill(x);
 
 const backend = new class {
     chromeJSON;
@@ -41,8 +45,49 @@ const backend = new class {
         reacc(true);
     }
 
-    onload () {
+    async onload () {
 
+        const display = new Engine.Canvas("main");
+        const scene = new Engine.Scene();
+        const engine = new Engine(scene, [ display ]);
+
+        await engine.addEntity(new Engine.Entity({
+            camera: {
+                distance: 200,
+                isometric: false,
+            },
+        }));
+
+        let scale = 100;
+        let dimensions = 7;
+        let axes = (dimensions * (dimensions - 1)) / 2;
+
+        await engine.addEntity(new Engine.Entity({
+            transform: {
+                position: [ 0, 0, - (scale * (dimensions - 2)), 0, 0, 0, 0, 0, 0, 0 ],
+                // position: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+                scale: N(scale, dimensions),
+            },
+            renderer: {
+                renderVertices: false,
+            },
+            shaders: "parallel",
+            geometry: Engine.Components.Geometry.Hypercube(dimensions),
+            scripts: [
+                { name: "spin", args: [ N(0.1, axes) ] },
+                { name: "control", args: [ 100, 0.5 ] }
+            ],
+        }));
+
+        await engine.addEntity(new Engine.Entity({
+            scripts: [
+                { name: "stats", args: [ [ { id: "debugInfo", index: 0 } ] ] },
+            ],
+        }));
+
+        console.log(engine.scene);
+
+        engine.start();
     }
 }();
 
