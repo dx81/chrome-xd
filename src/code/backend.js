@@ -1,4 +1,6 @@
-import validate from "./validate"
+/* global chrome */
+import defaultJSON from "./defaultJSON";
+import brokeJSON from "./broke"
 
 const backend = new class {
     chromeJSON;
@@ -9,30 +11,34 @@ const backend = new class {
             errored : false,
             msg : ""
         }
-
-
-    }
-
-    async init (acFn) {
-        this.chromeJSON = await this.loadJSON();
-
-        let {valid, error} = validate(this.chromeJSON);
-        if (!valid) {
-            this.error.errored = true;
-            this.error.msg = error;
-
-            //TODO: set default
-            this.chromeJSON = {};
-        }
-
-
-        //TODO: validate and set error, await engine init, set engine instance to this.engine
-
-        acFn(true);
     }
 
     async loadJSON () {
-        //get from chrome
+        if (!chrome.storage) {
+            return brokeJSON;
+        }
+
+        await new Promise((resolve) => {
+            chrome.storage.local.get("sceneData", res => {
+                if ("sceneData" in res) res = res.sceneData;
+
+                if (Object.keys(res).length === 0) resolve(defaultJSON);
+                resolve(res);
+            })
+        })
+    }
+
+    throw (msg) {
+        this.error.errored = true;
+        this.msg = msg;
+    }
+
+    async init (reacc) {
+        this.chromeJSON = await this.loadJSON();
+
+
+
+        reacc(true);
     }
 }();
 

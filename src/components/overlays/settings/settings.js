@@ -3,7 +3,7 @@ import React from "react";
 import {MdSettings} from "react-icons/all";
 import {Button, SmallOverlayBox, Heading, Spacer, CloseButton} from "../_components/components";
 import JSONControl from "./json/jsonControl";
-import Presets from "./presets/presets";
+import Presets from "./presets/_presets";
 
 const SettingsHeader = () => {
     return <React.Fragment>
