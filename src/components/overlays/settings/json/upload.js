@@ -17,8 +17,9 @@ function processData (data) {
     });
 }
 
-function updateFn () {
-    let file = this.files[this.files.length - 1];
+function updateFn (e) {
+    let files = e.target.files
+    let file = files[files.length - 1];
 
     if (file.type !== "application/json") {
         alert("Only json files are supported. This file has the type " + file.type);
