@@ -1,12 +1,12 @@
-import boxStyle from "../overlay.module.css"
+import {SmallOverlayBox, Heading} from "../_components/components";
 
 const Error = ({text}) => {
-    return <div className={boxStyle.smallOverlayBox}>
-        <h2 className={boxStyle.heading}> An error occurred validation JSON </h2>
+    return <SmallOverlayBox>
+        <Heading> An error occurred validation JSON </Heading>
         <p>
             {text}
         </p>
-    </div>
+    </SmallOverlayBox>
 }
 
 export default Error;

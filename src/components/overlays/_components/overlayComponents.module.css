@@ -1,5 +1,13 @@
+.button {
+    background: transparent;
+    border-radius: 3px;
+    border: solid 1px white;
+    cursor: pointer;
+    color: white;
+}
+
 .overlayBox {
-    padding: 10px;
+    padding: 20px;
     position: absolute;
 
     border-radius: 7px;
@@ -31,4 +39,8 @@
 
 .heading {
     text-align: center;
+}
+
+.spacer {
+    height: 10px;
 }

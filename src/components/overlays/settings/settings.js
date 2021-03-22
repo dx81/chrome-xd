@@ -1,23 +1,29 @@
-import boxStyle from "../overlay.module.css"
 import {useState} from "react"
-import componentStyle from "../overlayComponents.module.css"
+import React from "react";
 import {MdSettings} from "react-icons/all";
+import {Button, SmallOverlayBox, Heading, Spacer} from "../_components/components";
 import JSONControl from "./jsonControl";
 import Presets from "./presets";
 
-const SettingsDiv = ({setShowDiv}) => {
-    return <div className={boxStyle.smallOverlayBox}>
-        <h2 className={boxStyle.heading}> Settings </h2>
+const SettingsHeader = () => {
+    return <React.Fragment>
+        <Heading> Settings </Heading>
         <p>
             The entities which are rendered in the scene can be edited by using the scene editor, and downloaded or
             uploaded in JSON files.
         </p>
+    </React.Fragment>
+}
+
+const SettingsDiv = ({setShowDiv}) => {
+    return <SmallOverlayBox>
+        <SettingsHeader/>
+        <Spacer/>
 
         <JSONControl/>
         <Presets/>
 
-        <button className={componentStyle.button}
-                style={{
+        <Button style={{
                     position: "absolute",
                     bottom: "20px",
                     right: "20px"
@@ -25,16 +31,15 @@ const SettingsDiv = ({setShowDiv}) => {
                 onClick={() => setShowDiv(false)}
         >
             Close
-        </button>
-    </div>
+        </Button>
+    </SmallOverlayBox>
 }
 
 const Settings = () => {
     let [showDiv, setShowDiv] = useState(false);
 
     return <div>
-        <button className={componentStyle.button}
-                onClick={() => setShowDiv(true)}
+        <Button onClick={() => setShowDiv(true)}
                 style={{
                     position: "absolute",
                     right: "0.5%",
@@ -46,7 +51,7 @@ const Settings = () => {
                 }}
         >
             <MdSettings color="#ffffff"/>
-        </button>
+        </Button>
         {showDiv ? <SettingsDiv setShowDiv={setShowDiv}/> : null}
     </div>
 }
