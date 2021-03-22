@@ -40,6 +40,10 @@ const backend = new class {
 
         reacc(true);
     }
+
+    onload () {
+
+    }
 }();
 
 export default backend;
