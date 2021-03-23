@@ -34,8 +34,8 @@ export const Spacer = ({...props}) => {
     return <div className={style.spacer} {...props}> </div>
 }
 
-export const CloseButton = ({children, ...props}) => {
-    return <button className={style.closeButton} {...props}>
+export const CloseDiv = ({children, ...props}) => {
+    return <div className={style.closeDiv} {...props}>
         {children}
-    </button>
+    </div>
 }

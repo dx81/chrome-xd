@@ -1,9 +1,15 @@
 /* global chrome */
 import ButtonGroup from "./buttonGroup";
+import backend from "../../../../code/backend";
 
 const clearFn = () => {
     chrome.storage.local.remove("sceneData", () => {
-        window.location.reload();
+        //window.location.reload();
+
+        chrome.storage.local.remove("selectedPreset", () => {
+            backend.presetClear();
+            backend.hotReload({});
+        })
     })
 }
 

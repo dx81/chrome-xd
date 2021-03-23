@@ -1,5 +1,6 @@
 /* global chrome */
 import {button as btnCss} from "../../_components/overlayComponents.module.css";
+import backend from "../../../../code/backend";
 
 function processData (data) {
     data = data.target.result;
@@ -13,7 +14,12 @@ function processData (data) {
     }
 
     chrome.storage.local.set({sceneData : jsonData}, () => {
-        window.location.reload();
+        //window.location.reload();
+
+        chrome.storage.local.remove("selectedPreset", () => {
+            backend.presetClear();
+            backend.hotReload(jsonData);
+        })
     });
 }
 

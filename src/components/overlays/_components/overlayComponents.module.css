@@ -4,6 +4,7 @@
     border: solid 1px white;
     cursor: pointer;
     color: white;
+    margin-right: 5px;
 }
 
 .overlayBox {
@@ -33,22 +34,21 @@
     left: 0;
     right: 0;
     top: 0;
-    margin: 1vh auto auto;
+    margin: 2vh auto auto;
     width: 94vw;
-    height: 94vh;
+    height: 90vh;
 }
 
 .heading {
     text-align: center;
+    margin: 8px auto;
 }
 
 .spacer {
     height: 10px;
 }
 
-.closeButton {
-    composes: button;
-
+.closeDiv {
     position: absolute;
     bottom: 20px;
     right: 20px;
