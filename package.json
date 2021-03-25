@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "terser-webpack-plugin": "^4.2.3"
   }
 }
