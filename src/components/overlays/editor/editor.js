@@ -1,12 +1,25 @@
-import {LargeOverlayBox, CloseButton} from "../_components/components";
+import {LargeOverlayBox, CloseDiv, Button, Heading} from "../_components/components";
+import {TreeNode} from "./components/editorComponents";
 
 const SceneEditor = ({setOpen}) => {
     return <LargeOverlayBox>
-        test
+        <Heading>
+            Scene Editor
+        </Heading>
 
-        <CloseButton onClick={() => setOpen(false)}>
-            Close
-        </CloseButton>
+        <TreeNode name={"test node"}>
+            test
+        </TreeNode>
+
+        <CloseDiv>
+            <Button>
+                Save
+            </Button>
+
+            <Button onClick={() => setOpen(false)}>
+                Close
+            </Button>
+        </CloseDiv>
     </LargeOverlayBox>
 }
 

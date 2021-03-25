@@ -9,6 +9,7 @@ const N = (x, n) => Array(n).fill(x);
 const backend = new class {
     chromeJSON;
     error;
+    presetClearFn;
 
     constructor () {
         this.error = {
@@ -88,6 +89,20 @@ const backend = new class {
         console.log(engine.scene);
 
         engine.start();
+    }
+
+    hotReload (json) {
+        if (typeof json !== "object" || Object.keys(json).length === 0) json = defaultJSON;
+
+        console.log(json);
+    }
+
+    onPresetClear (fn) {
+        this.presetClearFn = fn;
+    }
+
+    presetClear () {
+        this.presetClearFn();
     }
 }();
 
