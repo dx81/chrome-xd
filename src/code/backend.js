@@ -10,6 +10,7 @@ const backend = new class {
     chromeJSON;
     error;
     presetClearFn;
+    engine;
 
     constructor () {
         this.error = {
@@ -47,12 +48,11 @@ const backend = new class {
     }
 
     async onload () {
-
         const display = new Engine.Canvas("main");
         const scene = new Engine.Scene();
-        const engine = new Engine(scene, [ display ]);
+        this.engine = new Engine(scene, [ display ]);
 
-        await engine.addEntity(new Engine.Entity({
+        this.engine.addEntity(new Engine.Entity({
             camera: {
                 distance: 200,
                 isometric: false,
@@ -63,7 +63,7 @@ const backend = new class {
         let dimensions = 7;
         let axes = (dimensions * (dimensions - 1)) / 2;
 
-        await engine.addEntity(new Engine.Entity({
+        this.engine.addEntity(new Engine.Entity({
             transform: {
                 position: [ 0, 0, - (scale * (dimensions - 2)), 0, 0, 0, 0, 0, 0, 0 ],
                 // position: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -80,15 +80,15 @@ const backend = new class {
             ],
         }));
 
-        await engine.addEntity(new Engine.Entity({
+        this.engine.addEntity(new Engine.Entity({
             scripts: [
                 { name: "stats", args: [ [ { id: "debugInfo", index: 0 } ] ] },
             ],
         }));
 
-        console.log(engine.scene);
+        console.log(this.engine.scene);
 
-        engine.start();
+        this.engine.start();
     }
 
     hotReload (json) {

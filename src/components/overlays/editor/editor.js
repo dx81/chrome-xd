@@ -1,5 +1,9 @@
 import {LargeOverlayBox, CloseDiv, Button, Heading} from "../_components/components";
-import {TreeNode} from "./components/editorComponents";
+import backend from "../../../code/backend";
+import ArrayComponent from "./components/arrayComponent";
+
+import mappings from "./mappings";
+console.log(mappings)
 
 const SceneEditor = ({setOpen}) => {
     return <LargeOverlayBox>
@@ -7,9 +11,7 @@ const SceneEditor = ({setOpen}) => {
             Scene Editor
         </Heading>
 
-        <TreeNode name={"test node"}>
-            test
-        </TreeNode>
+        <ArrayComponent treeTLD name="tld" data={backend.engine.scene} path={[]}/>
 
         <CloseDiv>
             <Button>
@@ -24,3 +26,5 @@ const SceneEditor = ({setOpen}) => {
 }
 
 export default SceneEditor;
+
+//<ArrayComponent treeTLD name="tld" data={backend.engine.scene} path={[]}/>
