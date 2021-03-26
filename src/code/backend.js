@@ -49,7 +49,7 @@ const backend = new class {
     async onload () {
 
         const display = new Engine.Canvas("main");
-        const scene = new Engine.Scene();
+        const scene = [];
         const engine = new Engine(scene, [ display ]);
 
         await engine.addEntity(new Engine.Entity({
