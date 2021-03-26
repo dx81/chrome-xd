@@ -1,9 +1,8 @@
+import workaround from "./workaround";
 import {LargeOverlayBox, CloseDiv, Button, Heading} from "../_components/components";
 import backend from "../../../code/backend";
 import ArrayComponent from "./components/arrayComponent";
-
-import mappings from "./mappings";
-console.log(mappings)
+workaround();
 
 const SceneEditor = ({setOpen}) => {
     return <LargeOverlayBox>

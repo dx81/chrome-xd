@@ -3,6 +3,12 @@ import InputComponent from "./components/inputComponent";
 import ArrayComponent from "./components/arrayComponent";
 import ObjectComponent from "./components/objectComponent";
 
+const StrC = ({name, path, data, type}) => {
+    return <div>
+        {path.join(".")}.{name} {type}
+    </div>
+}
+
 const mappings = {
     defaults : {
         array : ArrayComponent,
@@ -16,7 +22,8 @@ const mappings = {
         function : BlankComponent
     },
     overrides : {
-        "test.override.blank" : BlankComponent
+        "tld.x.geometry" : StrC,
+        "tld.x.transform" : StrC
     }
 }
 

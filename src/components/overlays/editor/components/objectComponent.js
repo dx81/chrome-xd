@@ -29,7 +29,7 @@ const ObjectComponent = ({name, path, data}) => {
 
 const ObjectComponent = ({name, path, data}) => {
     return <div>
-        &lt;Object&gt; @ {path.join(".")} - {name}
+        &lt;Object&gt; @ {path.join(".")}.{name}
         {Object.keys(data).map(key => GEN(data[key], [...path, name], key))}
     </div>
 }
