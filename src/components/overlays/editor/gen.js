@@ -9,8 +9,8 @@ const GEN = (data, path, key) => {
         return element;
     }).join(".");
 
-    Object.keys(mappings.overrides).forEach(key => {
-        if (pathString.includes(key)) Element = mappings.overrides[key];
+    Object.entries(mappings.overrides).forEach(([ key, value ]) => {
+        if (pathString.includes(key)) Element = value;
     });
 
     return <Element name={key}
