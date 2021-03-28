@@ -1,3 +1,5 @@
+/* Objects */
+
 .collapsibleStyle {
     color: white;
     padding: 3px 3px 5px 8px;
@@ -27,9 +29,20 @@
     margin-top: 5px;
 }
 
+/* Generic */
+
 .leftPad {
     padding-left: 12px;
 }
+
+.labelPadding {
+    margin-right: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+/* Inputs */
 
 .inputBox {
     color: white;
@@ -40,18 +53,8 @@
     padding: 1px;
 }
 
-.labelPadding {
-    margin-right: 5px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    display: inline-block;
-}
+
 
 .checkBox {
     filter: grayscale(100%);
-}
-
-.arrayLabel {
-    composes: leftPad labelPadding;
-    margin-bottom: 5px;
 }
