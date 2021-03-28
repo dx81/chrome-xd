@@ -60,7 +60,7 @@ const backend = new class {
         }));
 
         let scale = 100;
-        let dimensions = 7;
+        let dimensions = 4;
         let axes = (dimensions * (dimensions - 1)) / 2;
 
         this.engine.addEntity(new Engine.Entity({
@@ -72,7 +72,9 @@ const backend = new class {
             renderer: {
                 renderVertices: false,
             },
-            shaders: "parallel",
+
+            //TODO: fix parallel on non-cube
+            shaders: "rgb",
             geometry: Engine.Components.Geometry.Hypercube(dimensions),
             scripts: [
                 { name: "spin", args: [ N(0.1, axes) ] },

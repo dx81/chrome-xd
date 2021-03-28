@@ -28,10 +28,13 @@ const ObjectComponent = ({name, path, data}) => {
     return <Collapsible classParentString={style.collapsibleStyle}
                         trigger={<TriggerClosed name={name}/>}
                         triggerWhenOpen={<TriggerOpen name={name}/>}
-                        contentInnerClassName={style.collapsibleHeightFix}
                         onTriggerOpening={runContent}
+                        contentInnerClassName={style.collapsibleInner}
     >
-        {content}
+        <div className={style.sidelineHue}> </div>
+        <div className={style.blockDiv}>
+            {content}
+        </div>
     </Collapsible>
 }
 

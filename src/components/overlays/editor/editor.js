@@ -1,7 +1,7 @@
 import workaround from "./workaround";
 import {LargeOverlayBox, CloseDiv, Button, Heading} from "../_components/components";
 import backend from "../../../code/backend";
-import ArrayComponent from "./components/arrayComponent";
+import ObjectComponent from "./components/objectComponent";
 workaround();
 
 const SceneEditor = ({setOpen}) => {
@@ -10,7 +10,7 @@ const SceneEditor = ({setOpen}) => {
             Scene Editor
         </Heading>
 
-        <ArrayComponent treeTLD name="Scene" data={backend.engine.scene} path={[]}/>
+        <ObjectComponent name="Scene" data={backend.engine.scene} path={[]}/>
 
         <CloseDiv>
             <Button>
