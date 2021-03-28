@@ -10,7 +10,7 @@ const SceneEditor = ({setOpen}) => {
             Scene Editor
         </Heading>
 
-        <ArrayComponent treeTLD name="tld" data={backend.engine.scene} path={[]}/>
+        <ArrayComponent treeTLD name="Scene" data={backend.engine.scene} path={[]}/>
 
         <CloseDiv>
             <Button>

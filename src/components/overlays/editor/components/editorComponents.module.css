@@ -1,5 +1,13 @@
 .collapsibleStyle {
     color: white;
     padding: 10px;
+}
+
+.collapsibleStyleP {
     cursor: pointer;
+    display: inline;
+}
+
+.collapsibleHeightFix {
+    height: auto;
 }
