@@ -29,3 +29,6 @@ yarn-error.log*
 
 # ESLint
 .eslintignore
+
+# Other files
+todo.puml
