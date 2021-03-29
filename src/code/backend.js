@@ -24,11 +24,26 @@ const backend = new class {
             return brokeJSON;
         }
 
-        await new Promise((resolve) => {
+        return await new Promise((resolve) => {
             chrome.storage.local.get("sceneData", res => {
                 if ("sceneData" in res) res = res.sceneData;
 
                 if (typeof res !== "object" || Object.keys(res).length === 0) resolve(defaultJSON);
+                resolve(res);
+            })
+        })
+    }
+
+    async loadEnableDebugBool () {
+        if (!chrome.storage) {
+            return true;
+        }
+
+        return await new Promise((resolve) => {
+            chrome.storage.local.get("showDebug", res => {
+                if ("showDebug" in res) res = res.showDebug;
+
+                if (typeof res !== "boolean") resolve(false);
                 resolve(res);
             })
         })
@@ -40,14 +55,18 @@ const backend = new class {
     }
 
     async init (reacc) {
-        this.chromeJSON = await this.loadJSON();
-
-
+        //init code
+        //example: validate
 
         reacc(true);
     }
 
     async onload () {
+        this.chromeJSON = await this.loadJSON();
+        const enableDebugInfo = await this.loadEnableDebugBool();
+
+        console.log(enableDebugInfo)
+
         const display = new Engine.Canvas("main");
         const scene = [];
         this.engine = new Engine(scene, [ display ]);
@@ -82,11 +101,13 @@ const backend = new class {
             ],
         }));
 
-        this.engine.addEntity(new Engine.Entity({
-            scripts: [
-                { name: "stats", args: [ [ { id: "debugInfo", index: 0 } ] ] },
-            ],
-        }));
+        if (enableDebugInfo) {
+            this.engine.addEntity(new Engine.Entity({
+                scripts: [
+                    { name: "stats", args: [ [ { id: "debugInfo", index: 0 } ] ] },
+                ],
+            }));
+        }
 
         console.log(this.engine.scene);
 
