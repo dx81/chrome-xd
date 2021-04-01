@@ -6,9 +6,7 @@ const DebugInfo = () => {
     const [isChecked, setChecked] = useState(null);
 
     if (isChecked === null) {
-        if (!chrome.storage) setChecked(true);
-
-        (async () => {
+        if (!chrome.storage) setChecked(true); else (async () => {
             chrome.storage.local.get("showDebug", res => {
                 if ("showDebug" in res) res = res.showDebug;
 
