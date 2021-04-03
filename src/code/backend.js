@@ -91,9 +91,7 @@ const backend = new class {
             renderer: {
                 renderVertices: false,
             },
-
-            //TODO: fix parallel on non-cube
-            shaders: "rgb",
+            shaders: "parallel",
             geometry: Engine.Components.Geometry.Hypercube(dimensions),
             scripts: [
                 { name: "spin", args: [ N(0.1, axes) ] },

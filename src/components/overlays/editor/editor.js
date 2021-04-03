@@ -5,7 +5,7 @@ import ObjectComponent from "./components/objectComponent";
 workaround();
 
 const SceneEditor = ({setOpen}) => {
-    return <LargeOverlayBox>
+    return <LargeOverlayBox style={{background : "rgba(0, 0, 0, 0.95)"}}>
         <Heading>
             Scene Editor
         </Heading>
