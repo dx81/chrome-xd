@@ -47,13 +47,6 @@ const InputComponent = ({type, path, name, data}) => {
             }
         })()}
     </div>
-
-
-
-
-
-
-
 }
 
 export default InputComponent;

@@ -1,8 +1,12 @@
+.standardPadding {
+    margin: 3px 3px 5px 8px;
+}
+
 /* Objects */
 
 .collapsibleStyle {
+    composes: standardPadding;
     color: white;
-    padding: 3px 3px 5px 8px;
 }
 
 .collapsibleStyleP {
@@ -50,10 +54,8 @@
     border-radius: 5px;
     margin: 3px;
     border: 1px solid white;
-    padding: 1px;
+    padding: 1px 1px 1px 3px;
 }
-
-
 
 .checkBox {
     filter: grayscale(100%);
