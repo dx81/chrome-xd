@@ -67,7 +67,7 @@ const backend = new class {
 
         console.log(enableDebugInfo)
 
-        const display = new Engine.Canvas("main");
+        const display = new Engine.Displays.Canvas("main");
         const scene = [];
         this.engine = new Engine(scene, [ display ]);
 
