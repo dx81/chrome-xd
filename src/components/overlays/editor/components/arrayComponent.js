@@ -1,13 +1,14 @@
-import ObjectComponent from "./objectComponent"
 import GEN from "../gen";
+import ObjectComponent from "./objectComponent";
+import style from "./editorComponents.module.css"
 
-const ArrayComponent = ({treeTLD, name, path, data}) => {
-    if (treeTLD) return <ObjectComponent path={path} data={data} name={name}/>;
+//TODO: implement "add" button
+//TODO: implement arrays as own and not part of object
+//TODO: implement change handling (adding of elements)
+//TODO: add change in display name to reflect array type in obj prop
 
-    return <div>
-        &lt;Array&gt; @ {path.join(".")}.{name}
-        {data.map((elem, id) => GEN(elem, [...path, name], id))}
-    </div>;
+const ArrayComponent = ({name, path, data}) => {
+    return <ObjectComponent name={name} path={path} data={data}/>
 }
 
 export default ArrayComponent;

@@ -22,8 +22,8 @@ const mappings = {
         function : BlankComponent
     },
     overrides : {
-        "tld.x.geometry" : StrC,
-        "tld.x.transform" : StrC
+        //"tld.x.geometry" : StrC,
+        //"tld.x.transform" : StrC
     }
 }
 
