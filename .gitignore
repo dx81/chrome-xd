@@ -26,9 +26,3 @@ yarn-error.log*
 # IDE
 .idea
 .vscode
-
-# ESLint
-.eslintignore
-
-# Other files
-todo.puml
