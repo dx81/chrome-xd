@@ -67,13 +67,16 @@ const backend = new class {
 
         console.log(enableDebugInfo)
 
-        const display = new Engine.Displays.Canvas("main");
+        const display = new Engine.Displays.Canvas("main", {
+            size: [ window.innerWidth, window.innerHeight ],
+            viewport: { height: 1000 }
+        });
         const scene = [];
         this.engine = new Engine(scene, [ display ]);
 
         this.engine.addEntity(new Engine.Entity({
             camera: {
-                distance: 200,
+                cameraZ: 250,
                 isometric: false,
             },
         }));
@@ -110,6 +113,10 @@ const backend = new class {
         console.log(this.engine.scene);
 
         this.engine.start();
+
+        window.addEventListener("resize", () => {
+            display.resize([ window.innerWidth, window.innerHeight ]);
+        });
     }
 
     hotReload (json) {

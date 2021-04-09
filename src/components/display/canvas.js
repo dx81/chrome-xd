@@ -2,11 +2,6 @@ import React from "react"
 import style from "./canvas.module.css"
 import backend from "../../code/backend";
 
-window.onresize = () => {
-    document.getElementById("main").width = window.innerWidth;
-    document.getElementById("main").height = window.innerHeight;
-}
-
 class Canvas extends React.Component {
     componentDidMount () {
         backend.onload();
