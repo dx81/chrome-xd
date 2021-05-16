@@ -4,6 +4,8 @@ import backend from "../../../code/backend";
 import ObjectComponent from "./components/objectComponent";
 workaround();
 
+//TODO: add on-close warning
+
 const SceneEditor = ({setOpen}) => {
     return <LargeOverlayBox style={{background : "rgba(0, 0, 0, 0.95)"}}>
         <Heading>
